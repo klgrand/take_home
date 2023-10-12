@@ -44,8 +44,8 @@
   @apply max-w-[384px] w-[384px] bg-white border border-gray-200 rounded-lg shadow p-0
 }
 
-.btn__addtocart {
-  @apply text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-3 mb-4
+.btn {
+  @apply text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 
 }
 
 .cart_page__container {
@@ -53,7 +53,7 @@
 }
 
 .cart__container {
-  @apply p-4 border border-gray-200 rounded-lg basis-3/5 min-h-[500px]
+  @apply p-4 border border-gray-200 rounded-lg basis-3/5
 }
 
 .cart__title {
@@ -74,4 +74,12 @@
 
 .barprice {
   @apply flex justify-between w-full mt-6 text-gray-500
+}
+
+.input__coupon {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+}
+
+.input__coupon_error-message {
+  @apply absolute text-red-500 text-sm left-2 top-[45px] w-[70%]
 }

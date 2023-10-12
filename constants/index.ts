@@ -2,42 +2,42 @@ import { ProductProps, CampaignProps } from '@/types'
 
 export const PRODUCT_LIST: ProductProps[] = [
   {
-    key: "item00",
+    _key: "item00",
     name: "T-Shirt",
     img: "pexels-vie-studio-8148577.jpg",
     price: 350,
     product_category: "clothing"
   },
   {
-    key: "item01",
+    _key: "item01",
     name: "Hoodie",
     img: "pexels-ron-lach-9594679.jpg",
     price: 700,
     product_category: "clothing"
   },
   {
-    key: "item02",
+    _key: "item02",
     name: "Hat",
     img: "pexels-sueda-dilli-18465760.jpg",
     price: 250,
     product_category: "accessories"
   },
   {
-    key: "item03",
+    _key: "item03",
     name: "Bag",
     img: "pexels-luis-quintero-3731256.jpg",
     price: 640,
     product_category: "accessories"
   },
   {
-    key: "item04",
+    _key: "item04",
     name: "Belt",
     img: "pexels-tima-miroshnichenko-6765642.jpg",
     price: 250,
     product_category: "accessories"
   },
   {
-    key: "item05",
+    _key: "item05",
     name: "Watch",
     img: "pexels-martin-péchy-2078268.jpg",
     price: 850,
@@ -47,43 +47,113 @@ export const PRODUCT_LIST: ProductProps[] = [
 
 export const CAMPAIGN_LIST: CampaignProps[] = [
   {
-    key: "fixed_amount",
-    coupon: ["fixed_amount"],
+    _key: "fixed_amount",
+    coupon: [
+      {
+        _key: "fixed01",
+        coupon: "fixed_50",
+        discount: 50
+      },
+      {
+        _key: "fixed02",
+        coupon: "fixed_100",
+        discount: 100
+      }
+    ],
     name: "Fixed amount",
     campaign_category: "coupon",
     rule: "Discounts the entire cart by subtracting an amount from the total price",
     priority: 1,
+    code: "",
   },
   {
-    key: "percentage_discount",
-    coupon: ["percentage_discount"],
+    _key: "percentage_discount",
+    coupon: [
+      {
+        _key: "percentage01",
+        coupon: "percent_10",
+        discount: 10
+      },
+      {
+        _key: "percentage02",
+        coupon: "percent_50",
+        discount: 50
+      }
+    ],
     name: "Percentage discount",
     campaign_category: "coupon",
     rule: "Discounts the entire cart by subtracting a percentage from the total price",
     priority: 1,
+    code: "",
   },
   {
-    key: "percentage_discount_by_item_category",
-    coupon: ["percentage_discount_by_item_category"],
+    _key: "percentage_discount_by_item_category",
+    coupon: [
+      {
+        _key: "percentage_by_cat_01",
+        coupon: "percent_clothing_15",
+        discount: 15,
+        category: "clothing"
+      },
+      {
+        _key: "percentage_by_cat_02",
+        coupon: "percent_electronics_50",
+        discount: 50,
+        category: "electronics"
+      },
+      {
+        _key: "percentage_by_cat_03",
+        coupon: "percent_accessories_10",
+        discount: 10,
+        category: "accessories"
+      }
+    ],
     name: "Percentage discount by item category",
     campaign_category: "on_top",
     rule: "Discount the entire amount of a specific category of items in cart",
     priority: 2,
+    code: "",
   },
   {
-    key: "discount_by_points",
-    coupon: ["discount_by_points"],
+    _key: "discount_by_points",
+    coupon: [
+      {
+        _key: "point_discount_01",
+        coupon: "discount_point_10",
+        discount: 10
+      },
+      {
+        _key: "point_discount_02",
+        coupon: "discount_point_70",
+        discount: 70
+      }
+    ],
     name: "Discount by points",
     campaign_category: "on_top",
     rule: "Users spent points for a fixed amount of discount (1 point = 1 THB). The amount will be capped at 20% of total price",
     priority: 2,
+    code: "",
   },
   {
-    key: "special_campaigns",
-    coupon: ["special_campaigns"],
+    _key: "special_campaigns",
+    coupon: [
+      {
+        _key: "season_discount_01",
+        coupon: "ev300_dis40",
+        discount: 40,
+        every: 300
+      },
+      {
+        _key: "point_discount_02",
+        coupon: "ev100_dis10",
+        discount: 10,
+        every: 100
+      }
+    ],
     name: "Special campaigns",
-    campaign_category: "Seasonal",
+    campaign_category: "seasonal",
     rule: "From the total price, at every X THB, subtracting a fixed amount Y THB",
     priority: 3,
+    code: "",
   }
 ]

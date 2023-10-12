@@ -9,9 +9,9 @@ export default function Home() {
       </div>
       <div className="cards__container">
         {
-          PRODUCT_LIST?.map((product) => (
-            <div key={product.key}>
-              <Card {...product} />
+          PRODUCT_LIST?.map((item) => (
+            <div key={item._key}>
+              <Card {...item} />
             </div>
           ))
         }

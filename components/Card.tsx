@@ -1,14 +1,31 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
+import _ from 'lodash'
 import { ProductProps } from '@/types'
+import { useSetCartStateState } from '@/recoil/atoms/cart'
+import { addToCart } from '@/utils'
 
 
-const Card = ({ key, name, img, price, product_category }: ProductProps) => {
+const Card = (item: ProductProps) => {
+  const setCart = useSetCartStateState()
+
+  const _addToCart = () => {
+    setCart((cart) => {
+      const ggCart = addToCart(cart, { ...item, qty: 1 })
+      
+      console.log('ggCart = ' , ggCart)
+      
+      return ggCart
+    })
+  }
+
   return (
     <div className="card__container">
       <Image
-        src={`/${img}`}
-        alt={`image ${key}`}
+        src={`/${item.img}`}
+        alt={`image ${item._key}`}
         width={384}
         height={384}
         className="object-contain rounded-t-lg"
@@ -16,18 +33,18 @@ const Card = ({ key, name, img, price, product_category }: ProductProps) => {
       <div className="flex justify-between">
         <div className="p-3">
           <span className="text-xl">
-            {name}
+            {item.name}
           </span>
           <span className="text-gray-400 ml-2">
-            {`(${product_category})`}
+            {`(${item.product_category})`}
           </span>
         </div>
         <div className="text-xl p-3">
-          {`$${price}`}
+          {`$${item.price}`}
         </div>
       </div>
-      <div className="flex justify-end">
-        <button type="button" className="btn__addtocart">
+      <div className="flex justify-end mr-3 mb-4">
+        <button type="button" className="btn" onClick={_addToCart}>
           Add to Cart
         </button>
       </div>
