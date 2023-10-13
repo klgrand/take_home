@@ -8,7 +8,7 @@ import CartItem from '@/components/CartItem'
 import CampaignForm from '@/components/CampaignForm'
 import { useCartState } from '@/recoil/atoms/cart'
 import { CampaignProps } from '@/types'
-import { removeCoupon } from '@/utils'
+import { removeCoupon } from '@/utils/cartEndpoint'
 
 
 const Cart = () => {
@@ -50,11 +50,11 @@ const Cart = () => {
             </div>
             <div>
               {(cart?.promotion || []).map(promo => (
-                <div key={promo._key} className="flex justify-between mt-4">
+                <div key={promo._key} className="flex justify-between mt-4" data-testid="campaign-line-item">
                   <div className="text-green-600">
                     {`${promo.name} (${promo.code})`}
                   </div>
-                  <div onClick={() => _onRemoveCoupon(promo)} className="text-red-500 cursor-pointer">
+                  <div onClick={() => _onRemoveCoupon(promo)} className="text-red-500 cursor-pointer" data-testid="campaign-cancel-button">
                     x
                   </div>
                 </div>

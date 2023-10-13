@@ -5,7 +5,8 @@ import Image from 'next/image'
 import _ from 'lodash'
 import { ProductProps } from '@/types'
 import { useSetCartStateState } from '@/recoil/atoms/cart'
-import { addToCart, formatPrice } from '@/utils'
+import { addToCart } from '@/utils/cartEndpoint'
+import { formatPrice } from '@/utils'
 
 
 const Card = (item: ProductProps) => {
@@ -38,7 +39,7 @@ const Card = (item: ProductProps) => {
         </div>
       </div>
       <div className="flex justify-end mr-3 mb-4">
-        <button type="button" className="btn" onClick={_addToCart}>
+        <button type="button" className="btn" onClick={_addToCart} data-testid="btn-addtocart">
           Add to Cart
         </button>
       </div>

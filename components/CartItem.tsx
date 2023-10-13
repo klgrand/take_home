@@ -5,7 +5,8 @@ import Image from 'next/image'
 import _ from 'lodash'
 import { CartItemProps } from '@/types'
 import { useSetCartStateState } from '@/recoil/atoms/cart'
-import { removeItemByKey, formatPrice } from '@/utils'
+import { removeItemByKey } from '@/utils/cartEndpoint'
+import { formatPrice } from '@/utils'
 import { toast } from 'react-toastify'
 
 const CartItem = (item: CartItemProps) => {
@@ -23,7 +24,7 @@ const CartItem = (item: CartItemProps) => {
   }
 
   return (
-    <div className="cart_item flex mt-4 pt-4 pb-4 border-t border-gray-200">
+    <div className="cart_item flex mt-4 pt-4 pb-4 border-t border-gray-200" data-testid="product-line-item">
       <div className="cart_item__image_container">
         <Image
           src={`/${item.img}`}
@@ -31,11 +32,12 @@ const CartItem = (item: CartItemProps) => {
           width={100}
           height={100}
           className='object-contain'
+          data-testid="image-cartitem"
         />
       </div>
       <div className="cart_item__detail_container flex flex-col w-full pl-4 justify-between">
         <div className="flex justify-end">
-          <div className="text-red-500 cursor-pointer" onClick={removeItem}>Remove</div>
+          <div className="text-red-500 cursor-pointer" onClick={removeItem} data-testid="remove-line-item">Remove</div>
         </div>
         <div className="flex flex-col">
           <div className="flex items-center">

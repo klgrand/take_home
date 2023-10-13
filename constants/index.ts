@@ -58,6 +58,16 @@ export const CAMPAIGN_LIST: CampaignProps[] = [
         _key: "fixed02",
         coupon: "fixed_100",
         discount: 100
+      },
+      {
+        _key: "fixed03",
+        coupon: "fixed_350",
+        discount: 350
+      },
+      {
+        _key: "fixed04",
+        coupon: "fixed_500",
+        discount: 500
       }
     ],
     name: "Fixed amount",
@@ -126,6 +136,11 @@ export const CAMPAIGN_LIST: CampaignProps[] = [
         _key: "point_discount_02",
         coupon: "discount_point_70",
         discount: 70
+      },
+      {
+        _key: "point_discount_03",
+        coupon: "discount_point_400",
+        discount: 400
       }
     ],
     name: "Discount by points",

@@ -1,7 +1,7 @@
 import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { CartProps } from '@/types';
 
-const cartState = atom<CartProps>({
+export const cartState = atom<CartProps>({
   key: 'cartState',
   default: {
     items: [],
