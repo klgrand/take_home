@@ -49,11 +49,11 @@
 }
 
 .cart_page__container {
-  @apply flex gap-4 md:ml-4 md:mr-4;
+  @apply flex gap-4 md:ml-4 md:mr-4 md:flex-nowrap  flex-wrap;
 }
 
 .cart__container {
-  @apply p-4 border border-gray-200 rounded-lg basis-3/5;
+  @apply p-4 border border-gray-200 rounded-lg md:basis-3/5 basis-full;
 }
 
 .cart__title {
@@ -61,7 +61,7 @@
 }
 
 .summary__container {
-  @apply flex flex-col w-full basis-2/5 gap-4;
+  @apply flex flex-col w-full md:basis-2/5 basis-full gap-4;
 }
 
 .cart_summary__container {
