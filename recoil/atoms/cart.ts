@@ -1,5 +1,5 @@
-import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { CartProps } from '@/types';
+import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { CartProps } from '@/types'
 
 export const cartState = atom<CartProps>({
   key: 'cartState',
