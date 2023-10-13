@@ -5,7 +5,7 @@ import Image from 'next/image'
 import _ from 'lodash'
 import { ProductProps } from '@/types'
 import { useSetCartStateState } from '@/recoil/atoms/cart'
-import { addToCart } from '@/utils'
+import { addToCart, formatPrice } from '@/utils'
 
 
 const Card = (item: ProductProps) => {
@@ -40,7 +40,7 @@ const Card = (item: ProductProps) => {
           </span>
         </div>
         <div className="text-xl p-3">
-          {`$${item.price}`}
+          {formatPrice(item.price, 2)}
         </div>
       </div>
       <div className="flex justify-end mr-3 mb-4">

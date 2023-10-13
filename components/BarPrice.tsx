@@ -1,5 +1,6 @@
 import React from 'react'
 import { BarPriceProps } from '@/types'
+import { formatPrice } from '@/utils'
 
 const BarPrice = ({ title, price }: BarPriceProps ) => {
   return (
@@ -8,7 +9,7 @@ const BarPrice = ({ title, price }: BarPriceProps ) => {
         {title}
       </div>
       <div className="barprice__price">
-        {price}
+        {formatPrice(price, 2)}
       </div>
     </div>
   )

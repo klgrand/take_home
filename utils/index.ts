@@ -6,8 +6,7 @@ import { CAMPAIGN_LIST } from '@/constants'
 //START-------------------- ENDPOINT--------------------
 export const addToCart = (cart: CartProps, item: CartItemProps): CartProps => {
   let nCart = _.cloneDeep(cart)
-  const items = cart.items
-  const nItems = [ ...items, { ...item, qty: 1 } ]
+  const nItems = [ ...cart.items, { ...item, qty: 1 } ]
   nCart = { ...cart, items: mergedCartItem(nItems) }
   return calculatePromotions(refreshCart(nCart))
 }
@@ -36,7 +35,19 @@ export const addCoupon = (cart: CartProps, coupon: string): CartProps | string =
   }
 }
 
-export const removeCoupon = () => {}
+export const removeCoupon = (cart: CartProps, campaignKey: string): CartProps | string => {
+  try {
+    const nCart = _.cloneDeep(cart)
+    console.log('@ removeCoupon .. ' , {nCart, campaignKey} )
+  
+    if(_.isEmpty(nCart?.promotion || [])) throw new Error('There is not campaign in cart.')
+    nCart["promotion"] = nCart.promotion.filter(promo => promo._key != campaignKey)
+    return calculatePromotions(refreshCart(nCart))
+  } catch (error: any) {
+    return `${error.message}`;
+  }
+ 
+}
 
 export const checkOut = () => {}
 
@@ -55,15 +66,11 @@ export const mergedCartItem = (cartItems: CartItemProps[]): CartItemProps[] => {
   })
 }
 export const checkCartItem = (cart: CartProps): boolean => {
-  if(_.isEmpty(cart.items)) {
-    return false
-  }
+  if(_.isEmpty(cart.items)) return false
   return true
 }
 export const checkPromotionInCart = (cart: CartProps): boolean => {
-  if(_.isEmpty(cart.promotion)) {
-    return false
-  }
+  if(_.isEmpty(cart.promotion)) return false
   return true
 }
 export const checkAvailableCoupon = (code: string): boolean => {
@@ -73,6 +80,14 @@ export const checkAvailableCoupon = (code: string): boolean => {
 export const sortPromotionByPriority = (promotion: CampaignProps[]) => {
   return _.orderBy(promotion, "priority")
 }
+
+export const formatPrice = (price: number, decimal: number):string => {
+  const currency = "฿"
+  const formattedNumberWithCommas = price.toLocaleString()
+  const fixedDecimalNumber = price.toFixed(decimal)
+  return `${currency}${formattedNumberWithCommas}.${fixedDecimalNumber.split('.')[1]}`
+}
+
 //END--------------------UTILS--------------------
 
 
@@ -164,7 +179,6 @@ export const calculateBySeasonal = (cart: CartProps): CartProps => {
     } else {
       throw new Error("Cannot add this campaign because it over discount.")
     }
-    
   }
   return cart
 }

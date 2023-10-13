@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import RecoidContextProvider from './recoilContextProvider'
+import { ToastContainer } from 'react-toastify';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,11 @@ export default function RootLayout({
         <RecoidContextProvider>
           <Navbar />
           {children}
+          <ToastContainer
+            theme="dark"
+            autoClose={3000}
+            position="bottom-left"
+          />
         </RecoidContextProvider>
       </body>
     </html>

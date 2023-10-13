@@ -2,15 +2,27 @@
 
 import React from 'react'
 import _ from 'lodash'
+import { toast } from 'react-toastify'
 import BarPrice from '@/components/BarPrice'
 import CartItem from '@/components/CartItem'
 import CampaignForm from '@/components/CampaignForm'
-import { useCartStateValue } from '@/recoil/atoms/cart'
+import { useCartState } from '@/recoil/atoms/cart'
+import { CampaignProps } from '@/types'
+import { removeCoupon } from '@/utils'
 
 
 const Cart = () => {
-  const cart = useCartStateValue()
+  const [cart, updateCart] = useCartState()
   const items = _.get(cart, "items", [])
+
+  const _onRemoveCoupon = (promo: CampaignProps) => {
+    const result = removeCoupon(cart, promo._key)
+    if(typeof result === "string") {
+      toast.error(result)
+      return cart
+    }
+    updateCart(result)
+  }
 
   return (
     <div className="page__container">
@@ -42,7 +54,7 @@ const Cart = () => {
                   <div className="text-green-600">
                     {`${promo.name} (${promo.code})`}
                   </div>
-                  <div className="text-red-500 cursor-pointer">
+                  <div onClick={() => _onRemoveCoupon(promo)} className="text-red-500 cursor-pointer">
                     x
                   </div>
                 </div>
