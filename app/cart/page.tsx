@@ -118,7 +118,7 @@ const Cart = () => {
                 discount_point_10 (discount ฿10)
               </div>
               <div>
-                discount_point_70 (discount ฿ึ70)
+                discount_point_70 (discount ฿70)
               </div>
               <div>
                 discount_point_400 (discount ฿400)
