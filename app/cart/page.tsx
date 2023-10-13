@@ -69,6 +69,78 @@ const Cart = () => {
             <BarPrice title={"Discount"} price={cart.discount} />
             <BarPrice title={"Total"} price={cart.cart_total} />
           </div>
+          <div className="m-4 text-gray-400">
+            <div className="text-lg font-semibold">
+              Category - coupon
+            </div>
+            <div>
+            Fixed amount
+              <div>
+                fixed_50 (discount ฿50)
+              </div>
+              <div>
+                fixed_100 (discount ฿100)
+              </div>
+              <div>
+                fixed_350 (discount ฿350)
+              </div>
+              <div className="mb-4">
+                fixed_500 (discount ฿500)
+              </div>
+              Percentage discount
+              <div>
+                percent_10 (discount 10%)
+              </div>
+              <div>
+                percent_50 (discount 50%)
+              </div>
+            </div>
+          </div>
+
+          <div className="m-4 text-gray-400">
+            <div className="text-lg font-semibold">
+              Category - on top
+            </div>
+            <div>
+            Percentage discount by item category
+              <div>
+                percent_clothing_15 (discount 15% of clothing category)
+              </div>
+              <div>
+                percent_electronics_50 (discount 15% of clothing electronics)
+              </div>
+              <div className="mb-4">
+                percent_accessories_10 (discount 15% of clothing accessories)
+              </div>
+             
+              Discount by points
+              <div>
+                discount_point_10 (discount ฿10)
+              </div>
+              <div>
+                discount_point_70 (discount ฿ึ70)
+              </div>
+              <div>
+                discount_point_400 (discount ฿400)
+              </div>
+            </div>
+          </div>
+
+          <div className="m-4 text-gray-400">
+            <div className="text-lg font-semibold">
+              Category - seasonal
+            </div>
+            <div>
+              Special campaigns
+              <div>
+                ev300_dis40 (every ฿300 discount ฿40)
+              </div>
+              <div>
+                ev100_dis10 (every ฿100 discount ฿10)
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
