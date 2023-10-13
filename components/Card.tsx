@@ -12,13 +12,7 @@ const Card = (item: ProductProps) => {
   const setCart = useSetCartStateState()
 
   const _addToCart = () => {
-    setCart((cart) => {
-      const ggCart = addToCart(cart, { ...item, qty: 1 })
-      
-      console.log('ggCart = ' , ggCart)
-      
-      return ggCart
-    })
+    setCart((cart) => addToCart(cart, { ...item, qty: 1 }))
   }
 
   return (
