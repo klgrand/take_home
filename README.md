@@ -1,7 +1,5 @@
 Here is [demo](https://take-home-eta.vercel.app/)
 
-This project have not supported responsive yet.
-
 ## Getting Started
 
 First, run the development server:
